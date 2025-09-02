@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 15% 96%;
+    --foreground: 220 20% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 20%;
+
+    --primary: 220 100% 60%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 220 10% 85%;
+    --secondary-foreground: 220 20% 20%;
+
+    --muted: 220 10% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 220 15% 88%;
+    --accent-foreground: 220 20% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 85%;
+    --input: 220 10% 90%;
+    --ring: 220 100% 60%;
+
+    --radius: 1rem;
+
+    /* Chat specific colors */
+    --chat-bg: 220 15% 94%;
+    --user-message: 220 100% 60%;
+    --user-message-foreground: 0 0% 98%;
+    --bot-message: 220 10% 98%;
+    --bot-message-foreground: 220 20% 20%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 100% 60%), hsl(220 85% 50%));
+    --gradient-secondary: linear-gradient(135deg, hsl(220 10% 85%), hsl(220 15% 75%));
+    --gradient-bg: linear-gradient(180deg, hsl(220 15% 96%), hsl(220 10% 92%));
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 220 15% 88%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 220 15% 88%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 220 15% 88%;
+
+    --primary: 220 100% 65%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 220 15% 25%;
+    --secondary-foreground: 220 15% 88%;
+
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 15% 60%;
+
+    --accent: 220 20% 18%;
+    --accent-foreground: 220 15% 88%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 18%;
+    --input: 220 20% 15%;
+    --ring: 220 100% 65%;
+
+    /* Chat specific dark colors */
+    --chat-bg: 220 25% 10%;
+    --user-message: 220 100% 65%;
+    --user-message-foreground: 0 0% 98%;
+    --bot-message: 220 20% 15%;
+    --bot-message-foreground: 220 15% 88%;
+
+    /* Dark gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 100% 65%), hsl(220 85% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(220 15% 25%), hsl(220 10% 15%));
+    --gradient-bg: linear-gradient(180deg, hsl(220 25% 8%), hsl(220 20% 12%));
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-bg);
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .chat-message-enter {
+    animation: slideInMessage 0.3s ease-out;
+  }
+
+  .typing-indicator {
+    animation: typingDots 1.5s infinite ease-in-out;
+  }
+
+  @keyframes slideInMessage {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes typingDots {
+    0%, 60%, 100% {
+      transform: initial;
+    }
+    30% {
+      transform: translateY(-5px);
+    }
+  }
+}
